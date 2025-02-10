@@ -1,0 +1,128 @@
+/* Reset og grunnleggende styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #4d739b;
+}
+
+nav ul {
+    list-style: none;
+    padding: 10px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Hovedinnhold styling */
+.main-content {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: left; /* Venstrejusterer tekst */
+}
+section {
+    text-align: left; /* Sikrer at teksten starter fra venstre */
+}
+form {
+    display: flex;
+    flex-direction: column; /* Setter elementene i en kolonne */
+    align-items: flex-start; /* Justerer elementene til venstre */
+    gap: 10px; /* Gir litt luft mellom elementene */
+}
+button {
+    align-self: flex-start; /* Sikrer at knappen er venstrejustert */
+    width: auto; /* Hindrer at knappen strekker seg over hele bredden */
+    margin: 0; /* Fjerner eventuell automatisk sentrering */
+    padding: 10px 20px; /* Gir litt bedre utseende */
+}
+
+h1 {
+    color: #007BFF;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Knappestil */
+button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Tabell-styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+    text-transform: uppercase;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #d1e7fd;
+}
+
+/* Footer styling */
+footer {
+    background-color: #4d739b;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    border-radius:0 0 0 5px;
+}
