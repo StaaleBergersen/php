@@ -1,4 +1,3 @@
-
 <?php
     include 'kontakte_databasen.php';
 ?>
@@ -8,41 +7,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../1stilark.css">
-    <title>kjæledyr</title>
+    <title>Kjæledyr</title>
 </head>
 <body>
     <header>
         <nav>
             <?php include 'meny.php'; ?>
         </nav>
+    </header>
     <main>
         <h1>Les alle dine dyr</h1>
 <?php
         $sql_dyr = "SELECT * FROM minedyr;";
+        
+        // Gjør spørringen klar
+        $stmt = $conn->prepare($sql_dyr);
+        
+        // Kjør spørringen
+        $stmt->execute();
+        
+        $rader = $stmt->fetchAll(); // Hent alle radene fra tabellen
 
-          // Gjør spørringen klar
-          $stmt = $conn->prepare($sql_dyr);
-      
-          // Kjør spørringen
-          $stmt->execute();
+        echo "<table>";
+        echo "<tr><th>Type</th><th>Rase</th><th>Navn</th><th>Handling</th></tr>";
+        
+        // Hent ut alle radene i tabellen
+        foreach ($rader as $rad) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($rad['type']) . "</td>";
+            echo "<td>" . htmlspecialchars($rad['rase']) . "</td>";
+            echo "<td>" . htmlspecialchars($rad['navn']) . "</td>";
+            echo "<td>
+                    <form action='slett_dyr.php' method='POST' onsubmit='return confirm(\"Er du sikker på at du vil slette " . htmlspecialchars($rad['navn']) . "?\");'>
+                        <input type='hidden' name='dyr_id' value='" . $rad['id'] . "'>
+                        <button type='submit'>Slett</button>
+                    </form>
+                  </td>";
+            echo "</tr>";
+        }
 
-          $rader = $stmt->fetchAll(); // Hent alle radene fra tabellen
-
-          echo "<table>";
-            echo "<tr><th>type</th><th>rase</th><th>navn</th></tr>";
-            // Hent ut alle radene i tabellen
-            
-            for($i = 0; $i < count($rader); $i++) {
-                echo "<tr>";
-                    echo "<td>" . $rader[$i]['type'] . "</td>";
-                    echo "<td>" . $rader[$i]['rase'] . "</td>";
-                    echo "<td>" . $rader[$i]['navn'] . "</td>";
-                    echo "</tr>";
-            }  
-            echo "</table>";  
-    
-    ?>
-    
+        echo "</table>";  
+?>
     </main>
 </body>
 </html>
+
