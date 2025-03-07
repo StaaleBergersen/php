@@ -1,5 +1,5 @@
 <?php
-include 'sjekkOmInnlogget.php';
+    include 'sjekkOmInnlogget.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +21,6 @@ include 'sjekkOmInnlogget.php';
         <tr>
             <td>
                     <label for="">Fornavn:</label>
-                    <label for="fornavn">Fornavn:</label>
                     <input type="text" name="fornavn" id="fornavn" required>
             </td>
             <td>
@@ -53,7 +52,7 @@ include 'sjekkOmInnlogget.php';
         </tr>
         <tr>
             <td colspan="2" style="text-align: right;">
-                    <button type="submit" name="leggTil">Legg til</button>
+            <button type="submit" name="leggTil">Legg til</button>
             </td>
         </tr>
     </table>
