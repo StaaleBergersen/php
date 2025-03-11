@@ -29,7 +29,7 @@
         $rader = $stmt->fetchAll(); // Hent alle radene fra tabellen
 
         echo "<table>";
-        echo "<tr><th>Type</th><th>Rase</th><th>Navn</th><th>Handling</th></tr>";
+        echo "<tr><th>Type</th><th>Rase</th><th>Navn</th><th>Slett</th><th>Oppdater</th></tr>";
         
         // Hent ut alle radene i tabellen
         foreach ($rader as $rad) {
@@ -43,6 +43,12 @@
                         <button type='submit'>Slett</button>
                     </form>
                   </td>";
+                  echo "<td>
+                  <form action='endre_dyr.php' method='POST' );'>
+                      <input type='hidden' name='dyr_id' value='" . $rad['id'] . "'>
+                      <button type='submit'>Oppdater</button>
+                  </form>
+                </td>";
             echo "</tr>";
         }
 
