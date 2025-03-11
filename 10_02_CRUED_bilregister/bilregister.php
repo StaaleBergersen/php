@@ -1,4 +1,3 @@
-
 <?php
 include 'sjekkOmInnlogget.php';
 ?>
@@ -18,24 +17,23 @@ include 'sjekkOmInnlogget.php';
         </nav>
     </header>
     <main class="main-content">
-        <button><a href="nyBiler.php">Ny Bil</a></button><h1>Bilregister</h1>
+        <button><a href="nyBiler.php">Ny Bil</a></button>
+        <h1>Bilregister</h1>
         <?php
             // SQL-spørring for å hente ut alle biler
+            $sql = "SELECT biler.*, eiere.fornavn, eiere.etternavn, eiere.epost FROM biler LEFT JOIN eiere ON biler.Fnr = eiere.Fnr ORDER BY biler.Type ASC;";
 
-          $sql = "SELECT biler.*, eiere.fornavn, eiere.etternavn, eiere.epost FROM biler LEFT JOIN eiere ON biler.Fnr = eiere.Fnr ORDER BY biler.Type ASC;";
+            // Gjør spørringen klar
+            $stmt = $conn->prepare($sql);
+        
+            // Kjør spørringen
+            $stmt->execute();
 
-          // Gjør spørringen klar
-          $stmt = $conn->prepare($sql);
-      
-          // Kjør spørringen
-          $stmt->execute();
+            $rader = $stmt->fetchAll(); // Hent alle radene fra tabellen
 
-          $rader = $stmt->fetchAll(); // Hent alle radene fra tabellen
+            echo "<table>";
+            echo "<tr><th>Biltype</th><th>Merke</th><th>Farge</th><th>RegNr</th><th>Fornavn</th><th>Etternavn</th><th>Epost</th><th>Handlinger</th></tr>";
 
-          echo "<table>";
-            echo "<tr><th>Biltype</th><th>Merke</th><th>Farge</th><th>RegNr</th><th>Fornavn</th><th>Etternavn</th><th>Epost</th></tr>";
-            // Hent ut alle radene i tabellen
-            
             for($i = 0; $i < count($rader); $i++) {
                 echo "<tr>";
                 echo "<td>" . $rader[$i]['Type'] . "</td>";
@@ -45,15 +43,14 @@ include 'sjekkOmInnlogget.php';
                 echo "<td>" . $rader[$i]['fornavn'] . "</td>";
                 echo "<td>" . $rader[$i]['etternavn'] . "</td>";
                 echo "<td>" . $rader[$i]['epost'] . "</td>";
+                echo "<td><a href='endreBil.php?RegNr=" . urlencode($rader[$i]['RegNr']) . "'><button>Endre</button></a></td>";
                 echo "</tr>";
-            }  
+            }
             echo "</table>";
-            
         ?>
-
     </main>
     <footer>
         <?php include 'footer.php'; ?>
     </footer>
-    </body>
+</body>
 </html>
