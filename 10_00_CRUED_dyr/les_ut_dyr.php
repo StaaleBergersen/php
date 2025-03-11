@@ -15,9 +15,11 @@
             <?php include 'meny.php'; ?>
         </nav>
     </header>
-    <main>
-        <h1>Les alle dine dyr</h1>
-<?php
+    <main class="main-content">
+        <h1>Dine dyr</h1>
+        
+        <?php
+        // Lag en SQL-spørring
         $sql_dyr = "SELECT * FROM minedyr;";
         
         // Gjør spørringen klar

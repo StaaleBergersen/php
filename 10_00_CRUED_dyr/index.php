@@ -11,9 +11,9 @@
         <nav>
             <?php include 'meny.php'; ?>
         </nav>
-    <main>
+    </header>
+    <main class="main-content">
         <h1>Velkommen til kjæledyrregisteret</h1>
-        
     </main>
 </body>
 </html>

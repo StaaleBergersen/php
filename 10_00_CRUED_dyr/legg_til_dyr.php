@@ -14,7 +14,8 @@
         <nav>
             <?php include 'meny.php'; ?>
         </nav>
-    <main>
+    </header>
+    <main class="main-content">
         <h1>Legg til dyr</h1>
         <form action="legg_til_dyr.php" method="POST">
             <label for="type">Type</label>
@@ -25,7 +26,9 @@
             <input type="text" name="navn" id="navn" required>
             <button type="submit">Legg til</button>
         </form>
-
+        </main>
+</body>
+</html>
         <?php
   
   // Sjekk om skjemaet har blitt sendt inn
@@ -46,6 +49,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-    </main>
-</body>
-</html>
