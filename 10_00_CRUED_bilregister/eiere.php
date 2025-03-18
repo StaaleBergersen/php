@@ -15,7 +15,8 @@
             <?php include 'meny.php'; ?>
         </nav>
     </header>
-    <main class="main-content"><button><a href="nyEiere.php">Ny eier</a></button><h1>Oversikt eiere</h1>
+    <main class="main-content">
+        <button><a href="nyEiere.php">Ny eier</a></button><h1>Oversikt eiere</h1>
         <?php
             // Hent alle kundene fra databasen
           $sql_kunde = "SELECT eiere.Fnr, eiere.tlf, eiere.epost, eiere.fornavn, eiere.etternavn, eiere.adresse, eiere.postnr FROM eiere ORDER BY eiere.etternavn ASC;";

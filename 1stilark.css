@@ -48,6 +48,18 @@ nav ul li a {
 section {
     text-align: left; /* Sikrer at teksten starter fra venstre */
 }
+
+.section-content {  
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Setter elementene i en kolonne */
+    align-items: flex-start; /* Justerer elementene til venstre */  
+    background: whitesmoke;
+}
+
+
+
 form {
     display: flex;
     flex-direction: column; /* Setter elementene i en kolonne */
